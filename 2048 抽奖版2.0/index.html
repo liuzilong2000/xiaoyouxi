@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=0.5">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/2048.css">
+    <link rel="stylesheet" href="css/lizi.css">
+    <link rel="stylesheet" href="css/choujiang.css">
+    <style id="style">
+    </style>
+</head>
+<body>
+    <!-- 2048   -->
+    <!-- 计分 -->
+    <div id="branch">0</div>
+
+    
+    <div id="change">
+        <div id="box">
+            <ul id="ul">
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+    
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+    
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+    
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+            </ul>
+        </div>
+        <!-- 重新开始按钮 -->
+        <div id="again_btn">
+            <img src="img/again.png" alt="">
+        </div>
+        <!-- 抽奖 -->
+        <div class="bigbox">
+            <div class="box" id="box1">
+                <div class="dian"></div>
+                <div class="dian"></div>
+                <div class="dian"></div>
+                <div class="dian"></div>
+                <div class="dian"></div>
+                <div class="dian"></div>
+                <div class="dian"></div>
+                <div class="dian"></div>
+                <div class="dian"></div>
+                <div class="dian"></div>
+                <div class="dian"></div>
+                <div class="dian"></div>
+                <div class="dian"></div>
+                <div class="dian"></div>
+                <div class="dian"></div>
+                <div class="dian"></div>
+            </div>
+            <div class="sbox" id="sbox">
+                <div class="jiangli"><p>消除所有的2</p></div>
+                <div class="jiangli"><p>消除所有的32</p></div>
+                <div class="jiangli"><p>消除所有的16</p></div>
+                <div class="jiangli"><p>消除所有的64</p></div>
+                <div class="jiangli"><p>消除所有的4</p></div>
+                <div class="jiangli"><p>恭喜获得10<br>00分</p></div>
+                <div class="jiangli"><p>消除所有的8</p></div>
+                <div class="jiangli"><p>再接再厉</p></div>
+            </div>
+            <a href="javascript:;">
+                <div class="btnbox" id="btn">
+                    <p>开始抽奖</p>
+                    <p>500</p>
+                    <div class="jiantou"></div>
+                </div>
+            </a>
+        </div>
+    </div>
+    
+    <div class="rule">
+        <h5>规则：</h5>
+        <p>上下左右控制所有数字方块移动，<br>
+            当两个数字相遇时，就合并为两<br>
+            个数之和，可以用500分数购买<br>
+            一次抽奖机会，当格子内填满数<br>
+            字，游戏就失败了。
+        </p>
+    </div>
+
+    <!-- 动态离子 -->
+    <canvas id="myCanvas"></canvas>
+
+
+
+<script src="js/2048.js"></script>
+<script src="js/lizi.js"></script>
+<script src="js/choujiang.js"></script>
+</body>
+</html>

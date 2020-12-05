@@ -1,0 +1,150 @@
+*{
+    margin:0;
+    padding:0;
+}
+ul{
+    list-style: none;
+}
+
+#box{
+    width: 380px;
+    height: 380px;
+    background-color: rgba(153, 140, 104,.9);
+    border-radius: 10px;
+    padding:20px;
+    box-sizing:border-box;
+    position: absolute;
+    top:80px;
+    left:250px;
+}
+#box li{
+    width: 70px;
+    height: 70px;
+    background-color: rgba(255, 255, 255,.5);
+    float: left;
+    margin-right:20px;
+    margin-bottom:20px;
+    border-radius:5px;
+}
+#box li:nth-child(4n){
+    margin-right:0;
+}
+#box li:nth-child(13),
+#box li:nth-child(14),
+#box li:nth-child(15),
+#box li:nth-child(16){
+    margin-bottom:0px;
+}
+#box .num2,
+#box .num4,
+#box .num8,
+#box .num16,
+#box .num32,
+#box .num64,
+#box .num128,
+#box .num256,
+#box .num512,
+#box .num1024,
+#box .num2048{
+    background-color: rgb(7, 247, 79);
+    color:#fff;
+    text-align: center;
+    line-height: 70px;
+    font-size:30px;
+}
+#box .num4{
+    background-color: rgb(154, 245, 8);
+}
+#box .num8{
+    background-color: rgb(211, 214, 27);
+}
+#box .num16{
+    background-color: rgb(248, 204, 8);
+}
+#box .num32{
+    background-color: rgb(245, 181, 7);
+}
+#box .num64{
+    background-color: rgb(241, 147, 7);
+}
+#box .num128{
+    background-color: rgb(240, 125, 17);
+}
+#box .num256{
+    background-color: rgb(240, 88, 17);
+}
+#box .num512{
+    background-color: rgb(240, 63, 10);
+}
+#box .num1024{
+    background-color: rgb(240, 43, 17);
+}
+#box .num2048{
+    background-color: rgb(240, 17, 17);
+}
+
+/* 计分器 */
+#branch{
+    width: 100px;
+    height: 30px;
+    border:2px solid rgb(5, 41, 248);
+    margin:20px auto 0;
+    text-align: center;
+    color:#fff;
+    line-height: 30px;
+    position: absolute;
+    top:20px;
+    left:300px;
+}
+
+/* 规则 */
+.rule{
+    width: 50px;
+    height: 23px;
+    position: absolute;
+    top:5px;
+    left:5px;
+    color:#000;
+    background-color: rgba(255, 255, 255, .5);
+    overflow: hidden;
+    transition:all 0.5s;
+    padding:5px;
+    box-sizing: border-box;
+}
+.rule:hover{
+    width: 250px;
+    height: 140px;
+}
+
+
+/* 重新开始按钮 */
+#again_btn{
+    width: 50px;
+    height: 50px;
+    position: absolute;
+    top:20px;
+    right:20px;
+}
+#again_btn>img{
+    width: 100%;
+    height: 100%;
+}
+@media (max-width:768px){
+    #change{
+        width: 100%;
+        height: 100%;
+        position: absolute;
+    }
+    #box{
+        margin:20px auto;
+        position: absolute;
+        left: 50%;
+        top:120px;
+        transform: translate(-50%);
+    }
+    /* 计分器 */
+    #branch{
+        left:50%;
+        transform: translate(-50%);
+    }
+}
