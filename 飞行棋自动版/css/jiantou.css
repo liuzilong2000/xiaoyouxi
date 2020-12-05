@@ -1,0 +1,100 @@
+.jiantou{
+    position: absolute;
+    width: 250px;
+    height: 250px;
+}
+
+.jiantou div{
+    position: absolute;
+}
+.jiantou .top{
+    top: 25px;
+    left: 110px;
+    width: 28px;
+    height: 32px;
+}
+.jiantou .bottom{
+    top: 194px;
+    left: 110px;
+}
+.jiantou .xiantiao{
+    left: 125px;
+    width: 3px;
+    height: 250px;
+}
+.jiantou .xiao_jiantou{
+    top: 3px;
+    left: 8px;
+    width: 0;
+    height: 0;
+    border-left: 8px solid transparent;
+    border-right: 8px solid transparent;
+}
+.jiantou .da_jiantou{
+    top: 8px;
+    left: 3px;
+    width: 0;
+    height: 0;
+    border-left: 13px solid transparent;
+    border-right: 13px solid transparent;
+}
+/* 上箭头 */
+.j_shang{
+    transform:rotate(0deg);
+    top:310px;
+    left:110px;
+}
+.j_shang .xiantiao{
+    border-left: 3px dotted green;
+}
+.j_shang .xiao_jiantou{
+    border-bottom: 8px solid green;
+}
+.j_shang .da_jiantou{
+    border-bottom: 13px solid green;
+}
+/* 下箭头 */
+.j_xia{
+    transform: rotate(180deg);
+    top:310px;
+    right:110px;
+}
+.j_xia .xiantiao{
+    border-left: 3px dotted #e4e438;
+}
+.j_xia .xiao_jiantou{
+    border-bottom: 8px solid #e4e438;
+}
+.j_xia .da_jiantou{
+    border-bottom: 13px solid #e4e438;
+}
+/* 左箭头 */
+.j_zuo{
+    transform: rotate(270deg);
+    bottom:110px;
+    right:310px;
+}
+.j_zuo .xiantiao{
+    border-left: 3px dotted blue;
+}
+.j_zuo .xiao_jiantou{
+    border-bottom: 8px solid blue;
+}
+.j_zuo .da_jiantou{
+    border-bottom: 13px solid blue;
+}
+/* 右箭头 */
+.j_you{
+    transform: rotate(90deg);
+    top:110px;
+    right:310px;
+}
+.j_you .xiantiao{
+    border-left: 3px dotted red;
+}
+.j_you .xiao_jiantou{
+    border-bottom: 8px solid red;
+}
+.j_you .da_jiantou{
+    border-bottom: 13px solid red;
+}

@@ -1,0 +1,162 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+.feiji{
+    position: absolute;
+    width: 43px;
+    height: 43px;
+    border-radius: 50%;
+    margin:1px;
+}
+.yidong{
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    margin: 5px 7px;
+}
+.feiji  div{
+    position: absolute;
+}
+.shenzi{
+    top: 4px;
+    left: 10px;
+    width: 6px;
+    height: 20px;
+}
+.toubu{
+    top: 0px;
+    left: 10px;
+    width: 0;
+    height: 0;
+}
+.chibang{
+    position: absolute;
+}
+.chibang .left{
+    top: 5px;
+    left: 1px;
+    width: 0;
+    height: 0;
+}
+.chibang .right{
+    top: 5px;
+    left: 14px;
+    width: 0;
+    height: 0;
+}
+.weibu{
+    top: 18px;
+    left: 4px;
+    width: 0;
+    height: 0;
+}
+/* 红 */
+.hong{
+    border: 2px solid red;
+    box-sizing: border-box;
+}
+.hong .shenzi{
+    border: 1px solid red;
+    background: red;
+    
+}
+.hong .toubu{
+    border-left: 4px solid transparent;
+    border-right: 4px solid transparent;
+    border-bottom: 4px solid red;
+}
+.hong .chibang .left{
+    border-left: 14px solid transparent;
+    border-bottom: 14px solid red;
+}
+.hong .chibang .right{
+    border-right: 14px solid transparent;
+    border-bottom: 14px solid red;
+}
+.hong .weibu{
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-bottom: 10px solid red;
+}
+/* 绿 */
+.lv{
+    border: 2px solid green;
+    box-sizing: border-box;
+}
+.lv .shenzi{
+    border: 1px solid green;
+    background: green;
+}
+.lv .toubu{
+    border-left: 4px solid transparent;
+    border-right: 4px solid transparent;
+    border-bottom: 4px solid green;
+}
+.lv .chibang .left{
+    border-left: 14px solid transparent;
+    border-bottom: 14px solid green;
+}
+.lv .chibang .right{
+    border-right: 14px solid transparent;
+    border-bottom: 14px solid green;
+}
+.lv .weibu{
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-bottom: 10px solid green;
+}
+/* 蓝 */
+.lan{
+    border: 2px solid blue;
+    box-sizing: border-box;
+}
+.lan .shenzi{
+    border: 1px solid blue;
+    background: blue;
+}
+.lan .toubu{
+    border-left: 4px solid transparent;
+    border-right: 4px solid transparent;
+    border-bottom: 4px solid blue;
+}
+.lan .chibang .left{
+    border-left: 14px solid transparent;
+    border-bottom: 14px solid blue;
+}
+.lan .chibang .right{
+    border-right: 14px solid transparent;
+    border-bottom: 14px solid blue;
+}
+.lan .weibu{
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-bottom: 10px solid blue;
+}
+/* 黄 */
+.huang{
+    border: 2px solid #e4e438;
+    box-sizing: border-box;
+}
+.huang .shenzi{
+    border: 1px solid #e4e438;
+    background: #e4e438;
+}
+.huang .toubu{
+    border-left: 4px solid transparent;
+    border-right: 4px solid transparent;
+    border-bottom: 4px solid #e4e438;
+}
+.huang .chibang .left{
+    border-left: 14px solid transparent;
+    border-bottom: 14px solid #e4e438;
+}
+.huang .chibang .right{
+    border-right: 14px solid transparent;
+    border-bottom: 14px solid #e4e438;
+}
+.huang .weibu{
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-bottom: 10px solid #e4e438;
+}

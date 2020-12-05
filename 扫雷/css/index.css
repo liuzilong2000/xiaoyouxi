@@ -1,0 +1,68 @@
+*{
+    margin:0;
+    padding:0;
+}
+ul{
+    list-style:none;
+}
+
+#box{
+    position:relative;
+    top:20px;
+    left:50%;
+    transform:translate(-50%);
+    background-color: #999;
+    padding:15px;
+    box-sizing: border-box;
+    /* overflow: hidden; */
+    float: left;
+}
+#ul li{
+    width: 30px;
+    height: 30px;
+    background-color: rgb(122, 128, 123);
+    float: left;
+    border:1px solid #000;
+    box-sizing: border-box;
+}
+#ul li div{
+    display: none;
+    font-size: 20px;
+    color:rgb(9, 250, 9);
+    text-align:center;
+    line-height:30px;
+}
+#ul li div img{
+    width: 28px;
+    height: 28px;
+}
+/* 爆炸图片 */
+#baozha{
+    position: absolute;
+    left:50%;
+    top:50%;
+    transform: translate(-50%,-50%);
+}
+#baozha img{
+    opacity: 0.8;
+}
+/* 雷个数 */
+#leishu{
+    position: absolute;
+    top:50px;
+    left:50%;
+    margin-left:400px;
+    width: 95px;
+}
+#leishu #inp{
+    width: 50px;
+    height: 30px;
+    box-sizing: border-box;
+    padding-left:5px;
+}
+#leishu #btn{
+    width: 82px;
+    height: 30px;
+    border:1px solid #000;
+    box-sizing: border-box;
+}

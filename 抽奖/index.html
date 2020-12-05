@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style id="style">
+        *{
+            padding:0;
+            margin:0;
+        }
+        .bigbox{
+            width: 500px;
+            height: 500px;
+            margin:20px auto;
+            position: relative;
+        }
+        .box{
+            width: 500px;
+            height: 500px;
+            border:1px solid #000;
+            border-radius:50%;
+            background-color: red;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .dian:nth-child(2n-1){
+            width: 6px;
+            height: 6px;
+            background-color: yellow;
+            position: absolute;
+        }
+        .dian:nth-child(2n){
+            width: 5px;
+            height: 5px;
+            background-color: #fff;
+            box-shadow: 0px 0px 4px 5px rgb(255, 208, 0);
+            border-radius: 50%;
+            position: absolute;
+        }
+        .dian:nth-child(1){
+            top:1px;
+            left:50%;
+            transform: translate(-50%);
+            transform: rotate(45deg)
+        }
+        .dian:nth-child(3){
+            top:14.8%;
+            right:14.8%;
+            transform: translate(-50%,-50%);
+            /* transform: rotate(45deg) */
+        }
+        .dian:nth-child(5){
+            top:50%;
+            right:1px;
+            transform: translate(0,-50%);
+            transform: rotate(45deg)
+        }
+        .dian:nth-child(7){
+            bottom:14.1%;
+            right:14.8%;
+            transform: translate(-50%);
+            /* transform: rotate(45deg) */
+        }
+        .dian:nth-child(9){
+            bottom:1px;
+            left:50%;
+            transform: translate(-50%);
+            transform: rotate(45deg)
+        }
+        .dian:nth-child(11){
+            bottom:14.8%;
+            left:14.8%;
+            transform: translate(-50%);
+            /* transform: rotate(45deg) */
+        }
+        .dian:nth-child(13){
+            top:50%;
+            left:1px;
+            transform: translate(0,-50%);
+            transform: rotate(45deg)
+        }
+        .dian:nth-child(15){
+            top:14.8%;
+            left:14.8%;
+            transform: translate(0,-50%);
+            /* transform: rotate(45deg) */
+        }
+
+
+        .dian:nth-child(2){
+            top:4.4%;
+            right:30%;
+        }
+        .dian:nth-child(4){
+            right:4.4%;
+            top:30%;
+        }
+        .dian:nth-child(6){
+            right:4.4%;
+            bottom:30%;
+        }
+        .dian:nth-child(8){
+            bottom:4.4%;
+            right:30%;
+        }
+        .dian:nth-child(10){
+            bottom:4.4%;
+            left:30%;
+        }
+        .dian:nth-child(12){
+            left:4.4%;
+            bottom:30%;
+        }
+        .dian:nth-child(14){
+            left:4.4%;
+            top:30%;
+        }
+        .dian:nth-child(16){
+            top:4.4%;
+            left:30%;
+        }
+        .jiangli{
+            width: 0;
+            height: 0;
+            position: absolute;
+            border-left: 102px solid transparent;
+            border-right:102px solid transparent;
+            border-top:240px solid rgba(255, 196, 0 ,0.1);
+        }
+        .jiangli:nth-child(2n-1){
+            border-top:240px solid rgba(253, 216, 5,.4);
+        }
+        .jiangli:nth-child(1){
+            left:50%;
+            transform: translate(-50%)
+        }
+        .jiangli:nth-child(5){
+            left:50%;
+            bottom:0px;
+            transform: translate(-50%)  rotate(180deg);
+        }
+        .jiangli:nth-child(3){
+            top:50%;
+            right:20px;
+            transform: translate(0,-50%)  rotate(90deg);
+        }
+        .jiangli:nth-child(7){
+            top:50%;
+            left:20px;
+            transform: translate(0,-50%)  rotate(-90deg);
+        }
+        .jiangli:nth-child(2){
+            left:46%;
+            top:37px;
+            transform: translate(0,0)  rotate(45deg);
+        }
+        .jiangli:nth-child(4){
+            left:46%;
+            bottom:37px;
+            transform: translate(0,0)  rotate(135deg);
+        }
+        .jiangli:nth-child(6){
+            right:46%;
+            bottom:37px;
+            transform: translate(0,0)  rotate(-135deg);
+        }
+        .jiangli:nth-child(8){
+            right:46%;
+            top:37px;
+            transform: translate(0,0)  rotate(-45deg);
+        }
+
+        .btnbox{
+            width: 50px;
+            height: 50px;
+            background-color: red;
+            border:1px solid #000;
+            border-radius: 50%;
+            position: absolute;
+            top:50%;
+            left:50%;
+            transform: translate(-50%,-50%);
+            font-size: 12px;
+            color:#fff;
+            text-align: center;
+            line-height: 50px;
+        }
+        .btnbox div{
+            width: 0;
+            height: 0;
+            border-bottom:40px solid red;
+            border-left: 10px solid transparent;
+            border-right:10px solid transparent;
+            position: absolute;
+            top:-35px;
+            left:50%;
+            transform: translate(-50%)
+
+        }
+        .sbox{
+            width: 480px;
+            height: 480px;
+            background-color: rgb(255, 196, 0);
+            border-radius: 50%;
+            box-shadow: 0px 0px 1px 1px #000;
+            position: absolute;
+            top:50%;
+            left:50%;
+            transform: translate(-50%, -50%);
+            overflow: hidden;
+            /* transition:all 5s; */
+            /* animation:name 3s; */
+        }
+
+        /* @keyframes name{
+            0%{
+                transform: translate(-50%, -50%) rotate(0deg);
+            }
+            100%{
+                transform: translate(-50%, -50%) rotate(5000deg);
+            }
+        } */
+        .sbox p{
+            position: absolute;
+            top:70px;
+            transform: rotate(180deg)
+        }
+    </style>
+</head>
+<body>
+    <div class="bigbox">
+        <div class="box" id="box">
+            <div class="dian"></div>
+            <div class="dian"></div>
+            <div class="dian"></div>
+            <div class="dian"></div>
+            <div class="dian"></div>
+            <div class="dian"></div>
+            <div class="dian"></div>
+            <div class="dian"></div>
+            <div class="dian"></div>
+            <div class="dian"></div>
+            <div class="dian"></div>
+            <div class="dian"></div>
+            <div class="dian"></div>
+            <div class="dian"></div>
+            <div class="dian"></div>
+            <div class="dian"></div>
+        </div>
+        <div class="sbox" id="sbox">
+            <div class="jiangli"><p>一等奖</p></div>
+            <div class="jiangli"><p>二等奖</p></div>
+            <div class="jiangli"><p>三等奖</p></div>
+            <div class="jiangli"><p>四等奖</p></div>
+            <div class="jiangli"><p>五等奖</p></div>
+            <div class="jiangli"><p>六等奖</p></div>
+            <div class="jiangli"><p>七等奖</p></div>
+            <div class="jiangli"><p>八等奖</p></div>
+        </div>
+        <a href="#">
+            <div class="btnbox" id="btn">
+                <p>开始抽奖</p>
+                <div class="jiantou"></div>
+            </div>
+        </a>
+        
+    </div>
+    
+<script>
+    var btn = document.getElementById('btn');
+    var sbox = document.getElementById('sbox');
+    var box = document.getElementById('box');
+    var style = document.getElementById('style');
+    var random1 = 0;
+    var sun = 0;
+    var max = 10000;
+    var min = 5000;
+    var arr = ['name','name1'];
+    var a = 0;
+    btn.onclick = function(){
+        var random = Math.floor(Math.random() * (max - min)) + min;
+        random1 = random + random1;
+        if(a == 0){
+            style.innerHTML = style.innerHTML+' @keyframes '+arr[1]+'{0%{transform: translate(-50%, -50%) rotate('+sun+'deg);}100%{transform: translate(-50%, -50%) rotate('+random1+'deg);}}';
+            sbox.style.animation = ''+arr[1]+' 3s forwards';
+            a = 1;
+        }else{
+            style.innerHTML = style.innerHTML+' @keyframes '+arr[0]+'{0%{transform: translate(-50%, -50%) rotate('+sun+'deg);}100%{transform: translate(-50%, -50%) rotate('+random1+'deg);}}';
+            sbox.style.animation = ''+arr[0]+' 3s forwards';
+            a = 0;
+        }
+        sun = random1;
+    }
+    var b = 0;
+    setInterval(function(){
+        if(b == 0){
+            box.style.transform = 'rotate(25deg)';
+            b = 1;
+        }else{  
+            box.style.transform = 'rotate(0deg)';
+            b = 0;
+        }   
+        
+    },1000)
+</script>
+</body>
+</html>

@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        *{
+            margin:0;
+            padding:0;
+        }
+        ul{
+            list-style: none;
+        }
+        #box{
+            width: 380px;
+            height: 380px;
+            background-color: rgb(153, 140, 104);
+            margin:30px auto;
+            border-radius: 10px;
+            padding:20px;
+            box-sizing:border-box;
+        }
+        #box li{
+            width: 70px;
+            height: 70px;
+            background-color: rgba(255, 255, 255,.5);
+            float: left;
+            margin-right:20px;
+            margin-bottom:20px;
+            border-radius:5px;
+        }
+        #box li:nth-child(4n){
+            margin-right:0;
+        }
+        #box li:nth-child(13),
+        #box li:nth-child(14),
+        #box li:nth-child(15),
+        #box li:nth-child(16){
+            margin-bottom:0px;
+        }
+        #box .num2,
+        #box .num4,
+        #box .num8,
+        #box .num16,
+        #box .num32,
+        #box .num64,
+        #box .num128,
+        #box .num256,
+        #box .num512,
+        #box .num1024,
+        #box .num2048{
+            background-color: rgb(7, 247, 79);
+            color:#fff;
+            text-align: center;
+            line-height: 70px;
+            font-size:30px;
+        }
+        #box .num4{
+            background-color: rgb(154, 245, 8);
+        }
+        #box .num8{
+            background-color: rgb(211, 214, 27);
+        }
+        #box .num16{
+            background-color: rgb(248, 204, 8);
+        }
+        #box .num32{
+            background-color: rgb(245, 181, 7);
+        }
+        #box .num64{
+            background-color: rgb(241, 147, 7);
+        }
+        #box .num128{
+            background-color: rgb(240, 125, 17);
+        }
+        #box .num256{
+            background-color: rgb(240, 88, 17);
+        }
+        #box .num512{
+            background-color: rgb(240, 63, 10);
+        }
+        #box .num1024{
+            background-color: rgb(240, 43, 17);
+        }
+        #box .num2048{
+            background-color: rgb(240, 17, 17);
+        }
+
+        /* 计分器 */
+        #branch{
+            width: 100px;
+            height: 30px;
+            border:2px solid rgb(5, 41, 248);
+            margin:20px auto 0;
+            text-align: center;
+            line-height: 30px;
+        }
+    </style>
+</head>
+<body>
+    <!-- 计分 -->
+    <div id="branch">0</div>
+
+    <div id="box">
+        <ul id="ul">
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+        </ul>
+    </div>
+    
+<script>
+    var box = document.getElementById('box');
+    var ul = document.getElementById('ul');
+    var branch = document.getElementById('branch');
+    var lis = ul.children;
+    var li_number = lis.length;
+    // 设置自定义属性
+    for(var i = 0; i < li_number; i++){
+       var li = lis[i];
+       li.setAttribute('zdy',i)
+    }
+    // 初始化
+    for(var i = 0; i < 3; i++){
+        var a = Math.floor(Math.random() * 16);
+        for(var j = 0; j < li_number; j++){
+            if(lis[j].getAttribute('zdy') == a){
+                lis[j].className = 'num2';
+                lis[j].innerText = '2';
+            }
+        }
+    }
+    var obj = {
+        s2:'num2',
+        s4:'num4',
+        s8:'num8',
+        s16:'num16',
+        s32:'num32',
+        s64:'num64',
+        s128:'num128',
+        s256:'num256',
+        s512:'num512',
+        s1024:'num1024',
+        s2048:'num2048'
+    }
+    // 计分
+    var fen = 0;
+    // 右
+    function righter(for1,for2){
+        for(var j = for1; j > for2; j--){          
+            for(var i = for1; i > for2; i--){
+                if(lis[i].innerText !== '' && Number(lis[i].getAttribute('zdy')) !== for1){
+                    if(lis[i+1].innerText == ''){
+                        lis[i+1].innerText = lis[i].innerText;
+                        // 背景颜色
+                        var sun = lis[i+1].innerText;
+                        var sun2 = 's'+ sun;
+                        lis[i+1].className = obj[sun2];
+
+                        lis[i].innerText = '';
+                        lis[i].className = '';
+                    }
+                    if(lis[j].innerText !== '' && j !== for1 && lis[j].innerText == lis[j+1].innerText){
+                        lis[j+1].innerText = Number(lis[j].innerText) + Number(lis[j+1].innerText);
+                        // 计分
+                        fen += Number(lis[j+1].innerText);
+                        // 背景颜色
+                        var sun = lis[j+1].innerText;
+                        var sun2 = 's'+ sun;
+                        lis[j+1].className = obj[sun2];
+
+                        lis[j].innerText = '';
+                        lis[j].className = '';
+                    }
+                }
+            }
+        }
+    }
+    // 左
+    function lefter(for1,for2){
+        for(var j = for1; j < for2; j++){          
+            for(var i = for1; i < for2; i++){
+                if(lis[i].innerText !== '' && Number(lis[i].getAttribute('zdy')) !== for1){
+                    if(lis[i-1].innerText == ''){
+                        lis[i-1].innerText = lis[i].innerText;
+                        // 背景颜色
+                        var sun = lis[i-1].innerText;
+                        var sun2 = 's'+ sun;
+                        lis[i-1].className = obj[sun2];
+
+                        lis[i].innerText = '';
+                        lis[i].className = '';
+
+
+                    }
+                    if(lis[j].innerText !== '' && j !== for1 && lis[j].innerText == lis[j-1].innerText){
+                        lis[j-1].innerText = Number(lis[j].innerText) + Number(lis[j-1].innerText);
+                        // 计分
+                        fen += Number(lis[j-1].innerText);
+                        // 背景颜色
+                        var sun = lis[j-1].innerText;
+                        var sun2 = 's'+ sun;
+                        lis[j-1].className = obj[sun2];
+                        
+                        lis[j].innerText = '';
+                        lis[j].className = '';
+                    }
+                }
+            }
+        }
+    }
+    // 上
+    function toper(arr){
+        var arrTop = arr;
+        for(var j = 0; j < 4; j++){          
+            for(var i = 0; i < 4; i++){
+                if(lis[arrTop[i]].innerText !== '' && Number(lis[arrTop[i]].getAttribute('zdy')) !== arrTop[0]){
+                    if(lis[arrTop[i]-4].innerText == ''){
+                        lis[arrTop[i]-4].innerText = lis[arrTop[i]].innerText;
+                        // 背景颜色
+                        var sun = lis[arrTop[i]-4].innerText;
+                        var sun2 = 's'+ sun;
+                        lis[arrTop[i]-4].className = obj[sun2];
+
+                        lis[arrTop[i]].innerText = '';
+                        lis[arrTop[i]].className = '';
+                    }
+                    if(lis[arrTop[j]].innerText !== '' && j !== 0 && lis[arrTop[j]].innerText == lis[arrTop[j]-4].innerText){
+                        lis[arrTop[j]-4].innerText = Number(lis[arrTop[j]].innerText) + Number(lis[arrTop[j]-4].innerText);
+                        // 计分
+                        fen += Number(lis[arrTop[j]-4].innerText);
+                        // 背景颜色
+                        var sun = lis[arrTop[j]-4].innerText;
+                        var sun2 = 's'+ sun;
+                        lis[arrTop[j]-4].className = obj[sun2];
+
+                        lis[arrTop[j]].innerText = '';
+                        lis[arrTop[j]].className = '';
+                    }
+                }
+            }
+        }
+    }
+    // 下
+    function bottomer(arr){
+        var arrBottom = arr;
+        for(var j = 0; j < 4; j++){          
+            for(var i = 0; i < 4; i++){
+                if(lis[arrBottom[i]].innerText !== '' && Number(lis[arrBottom[i]].getAttribute('zdy')) !== arrBottom[0]){
+                    if(lis[arrBottom[i]+4].innerText == ''){
+                        lis[arrBottom[i]+4].innerText = lis[arrBottom[i]].innerText;
+                        // 背景颜色
+                        var sun = lis[arrBottom[i]+4].innerText;
+                        var sun2 = 's'+ sun;
+                        lis[arrBottom[i]+4].className = obj[sun2];
+
+                        lis[arrBottom[i]].innerText = '';
+                        lis[arrBottom[i]].className = '';
+                    }
+                    if(lis[arrBottom[j]].innerText !== '' && j !== 0 && lis[arrBottom[j]].innerText == lis[arrBottom[j]+4].innerText){
+                        lis[arrBottom[j]+4].innerText = Number(lis[arrBottom[j]].innerText) + Number(lis[arrBottom[j]+4].innerText);
+                        // 计分
+                        fen += Number( lis[arrBottom[j]+4].innerText);
+                        // 背景颜色
+                        var sun = lis[arrBottom[j]+4].innerText;
+                        var sun2 = 's'+ sun;
+                        lis[arrBottom[j]+4].className = obj[sun2];
+
+                        lis[arrBottom[j]].innerText = '';
+                        lis[arrBottom[j]].className = '';
+                    }
+                }
+            }
+        }
+    }
+    document.onkeydown = function(e){
+        // 左
+        if(e.keyCode == 37){
+            // 第一行
+            lefter(0,4);
+            // 第二行
+            lefter(4,8);
+            // 第三行
+            lefter(8,12);
+            // 第四行
+            lefter(12,16);
+        }
+        // 右
+        if(e.keyCode == 39){
+            // 第一行
+            righter(3,-1);
+            // 第二行
+            righter(7,3);
+            // 第三行
+            righter(11,7);
+            // 第四行
+            righter(15,11);
+        }
+        // 上
+        if(e.keyCode == 38){
+            // 第一列
+            var arrTop1 = [0,4,8,12];
+            toper(arrTop1);
+            // 第二列
+            var arrTop2 = [1,5,9,13];
+            toper(arrTop2);
+            // 第三列
+            var arrTop3 = [2,6,10,14];
+            toper(arrTop3);
+            // 第四列
+            var arrTop4 = [3,7,11,15];
+            toper(arrTop4);
+        }
+        // 下
+        if(e.keyCode == 40){
+            // 第一列
+            var arrBottom1 = [12,8,4,0]
+            bottomer(arrBottom1);
+            // 第二列
+            var arrBottom2 = [13,9,5,1]
+            bottomer(arrBottom2);
+            // 第三列
+            var arrBottom3 = [14,10,6,2]
+            bottomer(arrBottom3);
+            // 第四列
+            var arrBottom4 = [15,11,7,3]
+            bottomer(arrBottom4);
+        }
+
+        branch.innerText = fen;
+        
+        
+        shengcheng()
+        
+    }
+function shengcheng(){
+    setTimeout(function(){
+        var arr = [];
+        var arrlength = arr.length;
+        for(var i = 0; i < arrlength; i++){
+            arr.pop();
+        }
+        for(var j = 0; j < li_number; j++){
+            var wu = lis[j].innerText;
+            if(wu == ''){
+                var zdys = lis[j].getAttribute('zdy');
+                arr.push(zdys)
+            }   
+        }
+        arrlength = arr.length;
+        if(arrlength !== 0){
+            var b = Math.floor(Math.random() * arrlength);
+            lis[arr[b]].className = 'num2';
+            lis[arr[b]].innerText = '2';
+        }
+    
+    },500);
+}
+</script>
+</body>
+</html>
+

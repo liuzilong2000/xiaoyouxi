@@ -1,0 +1,35 @@
+.map{
+	width: 800px;
+	height: 600px;
+	background-color:#93FF93;
+	position: absolute;
+	top:50%;
+	left:50%;
+	margin-left: -400px;
+	margin-top: -300px;
+}
+.num{
+	width: 70px;
+	height: 30px;
+	border: 1px solid #000;
+	line-height: 30px;
+	position: absolute;
+	top:25px;
+	left:50%;
+	margin-left: -35px;
+}
+#btn2{
+	position: absolute;
+	top:25px;
+	right:610px;
+}
+#big{
+	width: 880px;
+	height: 600px;
+	background-color: #eee;
+	position: relative;
+	top:50px;
+	left:50%;
+	margin-left: -450px;
+	/*overflow: hidden;*/
+}

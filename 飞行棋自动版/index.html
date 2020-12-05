@@ -1,0 +1,583 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>飞行棋</title>
+    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="css/feiji.css">
+    <link rel="stylesheet" href="css/jiantou.css">
+    <link rel="stylesheet" href="css/shaizi.css">
+</head>
+<body>
+    <div id="box">
+        <!-- 规则 -->
+        <div id="guize">
+            <h3>规则：</h3>
+            <p>
+                <span>路线行走：</span><br>
+                &nbsp;&nbsp;从基地出发转一圈拐进终点跑到。飞机飞行步数有玩家自己（抛骰子）决定。
+            </p>
+            <p>
+                <span>起飞规则：</span><br>
+                &nbsp;&nbsp;1、当玩家没有抛出6就不可以起飞直到玩家抛出6点飞机才可以准备起飞。<br>
+                &nbsp;&nbsp;2、当飞出基地飞机到达终点后才可以有新的飞机出基地。
+            </p>
+            <p>
+                <span>撞飞机回基地：</span><br>
+                &nbsp;&nbsp;1、当飞机走到对方飞机上面，则对方飞机回到基地重新起飞。<br>
+                &nbsp;&nbsp;2、当飞机飞跃时，对方飞机刚好飞跃路线时则会被撞回基地重洗起飞。
+            </p>
+            <p>
+                <span>跳子：</span><br>
+                &nbsp;&nbsp;1、查看地图，如果飞机走到和自己颜色一样的格子上，则跳到前面的颜色处（但只能跳一次）。<br>
+                &nbsp;&nbsp;2、飞跃和跳跃规则一样，走到飞跃处就可以进行飞跃。
+            </p>
+            <p>
+                <span>胜利：</span><br>
+                &nbsp;&nbsp;1、飞行棋的胜利目标就是4架飞机都走到终点处。<br>
+                &nbsp;&nbsp;2、飞机只有刚好到终点才可以算胜利，如果点数不对则退回。
+            </p>
+        </div>
+        <!-- 飞机出发地 -->
+        <ul id="map-chukou">
+            <li class="sanjiao" id="li1"><div></div></li>
+            <li class="sanjiao" id="li15"><div></div></li>
+            <li class="sanjiao" id="li29"><div></div></li>
+            <li class="sanjiao" id="li43"><div></div></li>
+        </ul>
+        <!-- 地图 -->
+        <ul id="map-ul">
+            <li class="sanjiao bdred" id="li2"><div></div></li>
+            <li class="changfangxing bgyellow" id="li3"><div></div></li>
+            <li class="changfangxing" id="li4"><div></div></li>
+            <li class="sanjiao" id="li5"><div></div></li>
+            <li class="sanjiao" id="li6"><div></div></li>
+            <li class="changfangxing" id="li7"><div></div></li>
+            <li class="changfangxing" id="li8"><div></div></li>
+            <li class="sanjiao" id="li9"><div></div></li>
+            <li class="changfangxing" id="li10"><div></div></li>
+            <li class="changfangxing" id="li11"><div></div></li>
+            <li class="changfangxing" id="li12"><div></div></li>
+            <li class="changfangxing" id="li13"><div></div></li>
+            <li class="changfangxing" id="li14"><div></div></li>
+
+
+            
+            <li class="sanjiao" id="li16"><div></div></li>
+            <li class="changfangxing" id="li17"><div></div></li>
+            <li class="changfangxing" id="li18"><div></div></li>
+            <li class="sanjiao" id="li19"><div></div></li>
+            <li class="sanjiao" id="li20"><div></div></li>
+            <li class="changfangxing" id="li21"><div></div></li>
+            <li class="changfangxing" id="li22"><div></div></li>
+            <li class="sanjiao" id="li23"><div></div></li>
+            <li class="changfangxing" id="li24"><div></div></li>
+            <li class="changfangxing" id="li25"><div></div></li>
+            <li class="changfangxing" id="li26"><div></div></li>
+            <li class="changfangxing" id="li27"><div></div></li>
+            <li class="changfangxing" id="li28"><div></div></li>
+
+
+            
+            <li class="sanjiao" id="li30"><div></div></li>
+            <li class="changfangxing" id="li31"><div></div></li>
+            <li class="changfangxing" id="li32"><div></div></li>
+            <li class="sanjiao" id="li33"><div></div></li>
+            <li class="sanjiao" id="li34"><div></div></li>
+            <li class="changfangxing" id="li35"><div></div></li>
+            <li class="changfangxing" id="li36"><div></div></li>
+            <li class="sanjiao" id="li37"><div></div></li>
+            <li class="changfangxing" id="li38"><div></div></li>
+            <li class="changfangxing" id="li39"><div></div></li>
+            <li class="changfangxing" id="li40"><div></div></li>
+            <li class="changfangxing" id="li41"><div></div></li>
+            <li class="changfangxing" id="li42"><div></div></li>
+
+
+
+            
+            <li class="sanjiao" id="li44"><div></div></li>
+            <li class="changfangxing" id="li45"><div></div></li>
+            <li class="changfangxing" id="li46"><div></div></li>
+            <li class="sanjiao" id="li47"><div></div></li>
+            <li class="sanjiao" id="li48"><div></div></li>
+            <li class="changfangxing" id="li49"><div></div></li>
+            <li class="changfangxing" id="li50"><div></div></li>
+            <li class="sanjiao" id="li51"><div></div></li>
+            <li class="changfangxing" id="li52"><div></div></li>
+            <li class="changfangxing" id="li53"><div></div></li>
+            <li class="changfangxing" id="li54"><div></div></li>
+            <li class="changfangxing" id="li55"><div></div></li>
+            <li class="changfangxing" id="li56"><div></div></li>
+
+
+
+
+            <li class="fang" id="li57"><div></div></li>
+            <li class="fang" id="li58"><div></div></li>
+            <li class="fang" id="li59"><div></div></li>
+            <li class="fang" id="li60"><div></div></li>
+            <li class="fang" id="li61"><div></div></li>
+            <li  class="dasanjiao" id="li62"><div></div></li>
+
+
+
+            <li class="fang" id="li63"><div></div></li>
+            <li class="fang" id="li64"><div></div></li>
+            <li class="fang" id="li65"><div></div></li>
+            <li class="fang" id="li66"><div></div></li>
+            <li class="fang" id="li67"><div></div></li>
+            <li  class="dasanjiao" id="li68"><div></div></li>
+
+
+            <li class="fang" id="li69"><div></div></li>
+            <li class="fang" id="li70"><div></div></li>
+            <li class="fang" id="li71"><div></div></li>
+            <li class="fang" id="li72"><div></div></li>
+            <li class="fang" id="li73"><div></div></li>
+            <li  class="dasanjiao" id="li74"><div></div></li>
+
+
+
+            <li class="fang" id="li75"><div></div></li>
+            <li class="fang" id="li76"><div></div></li>
+            <li class="fang" id="li77"><div></div></li>
+            <li class="fang" id="li78"><div></div></li>
+            <li class="fang" id="li79"><div></div></li>
+            <li  class="dasanjiao" id="li80"><div></div></li>
+        </ul>
+        <!-- 箭头 -->
+        <!-- 上箭头 -->
+        <div class="jiantou j_shang">
+            <div class="xiantiao"></div>
+            <div class="top">
+                <div class="xiao_jiantou"></div>
+                <div class="da_jiantou"></div>
+            </div>
+            <div class="top bottom">
+                <div class="xiao_jiantou"></div>
+                <div class="da_jiantou"></div>
+            </div>
+        </div>
+        <!-- 下箭头 -->
+        <div class="jiantou j_xia">
+            <div class="xiantiao"></div>
+            <div class="top">
+                <div class="xiao_jiantou"></div>
+                <div class="da_jiantou"></div>
+            </div>
+            <div class="top bottom">
+                <div class="xiao_jiantou"></div>
+                <div class="da_jiantou"></div>
+            </div>
+        </div>
+        <!-- 左箭头 -->
+        <div class="jiantou j_zuo">
+            <div class="xiantiao"></div>
+            <div class="top">
+                <div class="xiao_jiantou"></div>
+                <div class="da_jiantou"></div>
+            </div>
+            <div class="top bottom">
+                <div class="xiao_jiantou"></div>
+                <div class="da_jiantou"></div>
+            </div>
+        </div>
+        <!-- 右箭头 --> 
+        <div class="jiantou j_you">
+            <div class="xiantiao"></div>
+            <div class="top">
+                <div class="xiao_jiantou"></div>
+                <div class="da_jiantou"></div>
+            </div>
+            <div class="top bottom">
+                <div class="xiao_jiantou"></div>
+                <div class="da_jiantou"></div>
+            </div>
+        </div>
+        <!-- 飞机场 -->
+        <ul id="yellowC" class="fjc">
+            <li>
+                <div class="feiji huang" id="yellow-fj1">
+                    <div class="yidong">
+                        <div class="shenzi"></div>
+                        <div class="toubu"></div>
+                        <div class="chibang">
+                            <div class="left"></div>
+                            <div class="right"></div>
+                        </div>
+                        <div class="weibu"></div>
+                    </div>
+                </div>
+            </li>
+            <li>
+                <div class="feiji huang" id="yellow-fj2">
+                    <div class="yidong">
+                        <div class="shenzi"></div>
+                        <div class="toubu"></div>
+                        <div class="chibang">
+                            <div class="left"></div>
+                            <div class="right"></div>
+                        </div>
+                        <div class="weibu"></div>
+                    </div>
+                </div>
+            </li>
+            <li>
+                <div class="feiji huang" id="yellow-fj3">
+                    <div class="yidong">
+                        <div class="shenzi"></div>
+                        <div class="toubu"></div>
+                        <div class="chibang">
+                            <div class="left"></div>
+                            <div class="right"></div>
+                        </div>
+                        <div class="weibu"></div>
+                    </div>
+                </div>
+            </li>
+            <li>
+                <div class="feiji huang" id="yellow-fj4">
+                    <div class="yidong">
+                        <div class="shenzi"></div>
+                        <div class="toubu"></div>
+                        <div class="chibang">
+                            <div class="left"></div>
+                            <div class="right"></div>
+                        </div>
+                        <div class="weibu"></div>
+                    </div>
+                </div>
+            </li>
+        </ul>
+        <ul id="blueC" class="fjc">
+            <li>
+                <div class="feiji lan" id="blue-fj1">
+                    <div class="yidong">
+                        <div class="shenzi"></div>
+                        <div class="toubu"></div>
+                        <div class="chibang">
+                            <div class="left"></div>
+                            <div class="right"></div>
+                        </div>
+                        <div class="weibu"></div>
+                    </div>
+                </div>
+            </li>
+            <li>
+                <div class="feiji lan"  id="blue-fj2">
+                    <div class="yidong">
+                        <div class="shenzi"></div>
+                        <div class="toubu"></div>
+                        <div class="chibang">
+                            <div class="left"></div>
+                            <div class="right"></div>
+                        </div>
+                        <div class="weibu"></div>
+                    </div>
+                </div>
+            </li>
+            <li>
+                <div class="feiji lan"  id="blue-fj3">
+                    <div class="yidong">
+                        <div class="shenzi"></div>
+                        <div class="toubu"></div>
+                        <div class="chibang">
+                            <div class="left"></div>
+                            <div class="right"></div>
+                        </div>
+                        <div class="weibu"></div>
+                    </div>
+                </div>
+            </li>
+            <li>
+                <div class="feiji lan"  id="blue-fj4">
+                    <div class="yidong">
+                        <div class="shenzi"></div>
+                        <div class="toubu"></div>
+                        <div class="chibang">
+                            <div class="left"></div>
+                            <div class="right"></div>
+                        </div>
+                        <div class="weibu"></div>
+                    </div>
+                </div>
+            </li>
+        </ul>
+        <ul id="greenC" class="fjc">
+            <li>
+                <div class="feiji lv"  id="green-fj1">
+                    <div class="yidong">
+                        <div class="shenzi"></div>
+                        <div class="toubu"></div>
+                        <div class="chibang">
+                            <div class="left"></div>
+                            <div class="right"></div>
+                        </div>
+                        <div class="weibu"></div>
+                    </div>
+                </div>
+            </li>
+            <li>
+                <div class="feiji lv"  id="green-fj2">
+                    <div class="yidong">
+                        <div class="shenzi"></div>
+                        <div class="toubu"></div>
+                        <div class="chibang">
+                            <div class="left"></div>
+                            <div class="right"></div>
+                        </div>
+                        <div class="weibu"></div>
+                    </div>
+                </div>
+            </li>
+            <li>
+                <div class="feiji lv"  id="green-fj3">
+                    <div class="yidong">
+                        <div class="shenzi"></div>
+                        <div class="toubu"></div>
+                        <div class="chibang">
+                            <div class="left"></div>
+                            <div class="right"></div>
+                        </div>
+                        <div class="weibu"></div>
+                    </div>
+                </div>
+            </li>
+            <li>
+                <div class="feiji lv"  id="green-fj4">
+                    <div class="yidong">
+                        <div class="shenzi"></div>
+                        <div class="toubu"></div>
+                        <div class="chibang">
+                            <div class="left"></div>
+                            <div class="right"></div>
+                        </div>
+                        <div class="weibu"></div>
+                    </div>
+                </div>
+            </li>
+        </ul>
+        <ul id="redC" class="fjc">
+            <li>
+                <div class="feiji hong"  id="red-fj1">
+                    <div class="yidong">
+                        <div class="shenzi"></div>
+                        <div class="toubu"></div>
+                        <div class="chibang">
+                            <div class="left"></div>
+                            <div class="right"></div>
+                        </div>
+                        <div class="weibu"></div>
+                    </div>
+                </div>
+            </li>
+            <li>
+                <div class="feiji hong"  id="red-fj2">
+                    <div class="yidong">
+                        <div class="shenzi"></div>
+                        <div class="toubu"></div>
+                        <div class="chibang">
+                            <div class="left"></div>
+                            <div class="right"></div>
+                        </div>
+                        <div class="weibu"></div>
+                    </div>
+                </div>
+            </li>
+            <li>
+                <div class="feiji hong"  id="red-fj3">
+                    <div class="yidong">
+                        <div class="shenzi"></div>
+                        <div class="toubu"></div>
+                        <div class="chibang">
+                            <div class="left"></div>
+                            <div class="right"></div>
+                        </div>
+                        <div class="weibu"></div>
+                    </div>
+                </div>
+            </li>
+            <li>
+                <div class="feiji hong"  id="red-fj4">
+                    <div class="yidong">
+                        <div class="shenzi"></div>
+                        <div class="toubu"></div>
+                        <div class="chibang">
+                            <div class="left"></div>
+                            <div class="right"></div>
+                        </div>
+                        <div class="weibu"></div>
+                    </div>
+                </div>
+            </li>
+        </ul>
+         <!-- 骰子 -->
+        <div id="touzi-box">
+            <div class="sz-box" id="sz-box1">
+            <div class="top">
+                <div></div>
+            </div>
+            <div class="left">
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+            <div class="right">
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+            <div class="bottom">
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+            <div class="qian">
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+            <div class="hou">
+                <div></div>
+                <div></div>
+            </div>
+            </div>
+            <div class="sz-box" id="sz-box2">
+        <div class="top">
+            <div></div>
+        </div>
+        <div class="left">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+        <div class="right">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+        <div class="bottom">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+        <div class="qian">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+        <div class="hou">
+            <div></div>
+            <div></div>
+        </div>
+            </div>
+            <div class="sz-box" id="sz-box3">
+        <div class="top">
+            <div></div>
+        </div>
+        <div class="left">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+        <div class="right">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+        <div class="bottom">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+        <div class="qian">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+        <div class="hou">
+            <div></div>
+            <div></div>
+        </div>
+            </div>
+            <div class="sz-box" id="sz-box4">
+        <div class="top">
+            <div></div>
+        </div>
+        <div class="left">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+        <div class="right">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+        <div class="bottom">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+        <div class="qian">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+        <div class="hou">
+            <div></div>
+            <div></div>
+        </div>
+            </div>
+        </div>
+        <!-- 自动开关 -->
+        <div id="switch">
+            <h5>自动:</h5>
+            <div id="hua-box">
+                <div id="hua">关</div>
+            </div>
+        </div>
+        <!-- 飞机相撞动态图 -->
+        <div id="images">
+            
+        </div>
+    </div>
+   
+    
+
+
+
+
+
+    <!-- <script src="js/shaizi.js"></script> -->
+    <script src="js/index.js"></script>
+
+</body>
+</html>
